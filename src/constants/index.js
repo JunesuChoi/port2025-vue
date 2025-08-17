@@ -10,7 +10,7 @@ export const headerNav = [
 
 export const introText = {
   title: "port developer",
-  desc: ["talent is", "found at the end of the", "effort"],
+  desc: ["안녕하세요 is", "found at the end of the", "effort"],
 };
 
 export const skillText = [
