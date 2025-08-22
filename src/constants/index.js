@@ -10,18 +10,53 @@ export const headerNav = [
 
 export const introText = {
   title: "port developer",
-  desc: ["안녕하세요 is", "found at the end of the", "effort"],
+  desc: ["vue.js", "포트폴리오 프로젝트", "시작합니다.111"],
 };
 
 export const skillText = [
   {
-    title: "꿈을 설계하고 디자인하다.",
-    desc: "나는 공간을 만드는 것을 좋아한다. 어려을 때부터 나만의 공간을 만드는 것을 좋아했고 나만의 다락방을 좋아했다. 단 한 사람이라도 내가 만든 공간 속에서 영감을 받거나 마음이 움직였으면 좋겠다. 나만의 공간을 마음것 만들 수 있다는 건 코딩에 엄청난 매력인거 같다. 그 한구석에 나만의 꿈을 설계하고, 개발을 하며 앞으로도 살고 싶다."
+    title: "역량.",
+    desc: `
+    자격증 
+    • 정보처리기사 - 2024.06.18
+    • SQLD - 2024.06.21
+    • 리눅스 마스터 2급 - 2025.03.28
+    • 운전면허 1종 보통 - 2016.03.16
+    • 컴퓨터활용능력 2급 - 2019.03.16
+
+    요약
+    • 공공기관 대상 시스템 개발 및 유지보수 3년이상
+    • 보안 취약점 대응 (세션, 로그인 등) 실무 경험
+    • 전자문서/결재/출력 등 공공업무 자동화 구현 경험
+    • Oracle, Tibero 기반 DB 연동 및 성능 개선 다수 경험
+    • Linux 기반 온프레미스 서버 운용 실무 경험 보유
+    • SMS/Email 알림 연동 (Ncloud SMS API + JavaMail)
+    `
   },
   {
-    title: "열심히 할수록 기회는 따른다.",
-    desc: "운이 좋은 사람은 없다. 단지 운을 만들 뿐이다. 운을 만들기 위해서는 내가 좋아하는 일이나 내가 하고 싶은 일에 몰두하면 된다. 몰두 하다보면 길이 보이고 방향이 보이게 된다. 운이란 고된 노동과 노력을 통해 스스로 만들어 내는 것이다."
-  },
+    title: "Skill.",
+    desc: `
+    현업스킬
+    • Server-Side : Java, Spring Framework (MVC, REST, Scheduler), MyBatis, iBatis, JSP
+    • Client-Side : JavaScript, HTML, CSS, jQuery, Nexacro, MiPlatform, AJAX
+    • Database : Oracle, Tibero, SQL
+    • Server : Linux, Ncloud, AWS S3 (파일 저장), JEUS
+    • Version Control : Git, SVN, Redmine, Notion
+
+    학습 스킬 
+    •Server-Side : java, spring boot, JPA, ORM, Node.js, mosquitto, Arduino(C++)
+    •Client-Side : Vue.js
+    •Database : MySQL, H2, MongoDB
+    •Server : Linux, AWS_EC2
+    ||
+    ||
+
+    필요 스킬
+    • Server-Side : Spring Framework
+    • Client-Side : Vue.js
+    •  Version Control : GitHub, Notion
+    •  Server : Linux, AWS_EC2, AWS_S3
+    ` },
   {
     title: "나에게 정직하다.",
     desc: "정직은 다른 사람보다 나에게 큰 의미를 부여해야 한다. 자신이 정직하지 않으면 진정으로 원하는 일을 열정적으로 밀고 나갈 수 없다. 마음에서 우러나오는 일을 해야 정직해지며 삶을 더 즐길 줄 알게 된다."
