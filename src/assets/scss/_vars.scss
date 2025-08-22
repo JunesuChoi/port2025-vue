@@ -32,10 +32,29 @@
         font-size: 14px;
         line-height: 1.4;
     }
+    
+    @media (max-width: 480px) {
+        font-size: 13px;
+        line-height: 1.3;
+    }
 }
+
+// 반응형 브레이크포인트 변수들
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large: 1200px;
+
+// 레거시 브레이크포인트 (기존 800px 유지)
+$breakpoint-legacy: 800px;
   
 body {
     background-color: var(--mainBg-color);
+    overflow-x: hidden; /* 전체 페이지 가로 스크롤 방지 */
+}
+
+html {
+    overflow-x: hidden; /* HTML 레벨에서도 가로 스크롤 방지 */
 }
 
                         

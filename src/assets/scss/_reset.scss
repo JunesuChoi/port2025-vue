@@ -82,6 +82,25 @@ strong {
 img {
     vertical-align: top;
     width: 100%;
+    height: auto; /* 이미지 비율 유지 */
+    max-width: 100%; /* 컨테이너를 넘지 않도록 */
+}
+
+// 기본 반응형 컨테이너
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    
+    @media (max-width: 480px) {
+        padding: 0 12px;
+    }
+}
+
+// 반응형 텍스트 유틸리티
+.text-responsive {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 // 스킵메뉴

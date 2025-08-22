@@ -85,9 +85,19 @@ import { skillText } from "@/constants/index";
       font-weight: 900;
       font-family: var(--mainNum-font); /* 숫자용 폰트 */
 
+      /* 태블릿에서의 번호 크기 */
+      @media (max-width: 800px) and (min-width: 481px) { 
+        font-size: 15vw;
+      }
+      
       /* 모바일에서의 번호 크기 */
-      @media (max-width: 800px){ 
-        font-size: 20vw; /* 모바일에서 더 크게 표시 */
+      @media (max-width: 480px){ 
+        font-size: 18vw; /* 모바일에서 더 크게 표시 */
+      }
+      
+      /* 아주 작은 화면 */
+      @media (max-width: 320px) {
+        font-size: 15vw;
       }
     }
     /* 스킬 제목 스타일링 */

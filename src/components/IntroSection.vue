@@ -81,9 +81,14 @@ const handleMouseLeave = () => {
   width: 100%; height: 100%; /* 부모 요소 차지 */
   display: flex; align-items: flex-start; justify-content: flex-end; /* 하단 정렬 */
   flex-direction: column; padding: 16px; /* 세로 배치와 여백 */
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+  max-width: 100vw; /* 뷰포트 너비 초과 방지 */
 
   /* 모바일 화면에서의 정렬 조정 */
-  @media (max-width: 800px){ justify-content: center; /* 모바일에서는 가운데 정렬 */ }
+  @media (max-width: 800px){ 
+    justify-content: center; /* 모바일에서는 가운데 정렬 */
+    padding: 12px; /* 모바일에서 패딩 축소 */
+  }
 
   /* 소개 섹션 제목 스타일링 */
   .intro__title {
@@ -96,17 +101,43 @@ const handleMouseLeave = () => {
   /* 소개 텍스트 영역 스타일링 */
   .intro__text {
     width: 100%; height: 40vh; background-color: var(--black); color: var(--white); /* 배경과 글자색 */
-    display: flex; align-items: center; justify-content: center; flex-direction: column; /* 가운데 정렬 */
+    display: flex; align-items: center; justify-content: space-between; /* 양쪽 정렬로 변경 */
     position: relative; /* 내부 요소 배치를 위한 기준점 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    padding: 0 2rem; /* 좌우 여백 추가 */
+
+    /* 모바일에서는 세로 배치 */
+    @media (max-width: 800px) {
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem;
+    }
 
     /* 텍스트 스타일링 */
     .text {
       font-size: 3vw; line-height: 1; font-weight: 900; text-transform: uppercase; /* 크고 굵게, 대문자로 */
       text-decoration: underline; text-align: center; position: relative; z-index: 100; /* 밑줄과 중앙 정렬 */
       transition: all 0.3s; cursor: all-scroll; /* 호버 효과와 커서 스타일 */
+      flex: 1; /* 남은 공간 차지 */
+      max-width: 60%; /* 최대 너비 제한 */
+
+      /* 태블릿에서 크기 조정 */
+      @media (max-width: 800px) and (min-width: 481px) { 
+        font-size: 28px;
+        max-width: 100%;
+        margin-bottom: 1rem;
+      }
 
       /* 모바일에서는 고정 크기로 설정 */
-      @media (max-width: 800px){ font-size: 24px; }
+      @media (max-width: 480px){ 
+        font-size: 22px;
+        max-width: 100%;
+        margin-bottom: 1rem;
+      }
+      
+      @media (max-width: 320px) {
+        font-size: 18px;
+      }
     }
     
     /* 마우스 오버 시 나타나는 텍스트 스타일링 */
@@ -117,11 +148,11 @@ const handleMouseLeave = () => {
       text-transform: none; /* 대문자 변환 제거 */
       font-weight: 900; /* 3배 더 두껍게 */
       line-height: 1.5; /* 줄간격 늘림 */
-      position: absolute; /* 절대 위치 지정 */
-      left: 5%; /* 왼쪽에서 5% 위치에 배치 */
-      top: 50%; /* 수직 중앙 정렬 */
-      transform: translateY(-50%); /* 수직 중앙 정렬 보정 */
+      flex: 1; /* 남은 공간 차지 */
       max-width: 60%; /* 최대 너비 제한 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       
       .contact-item {
         margin-bottom: 1rem; /* 항목 간격 */
@@ -144,8 +175,9 @@ const handleMouseLeave = () => {
       /* 모바일에서는 고정 크기로 설정 */
       @media (max-width: 800px){ 
         font-size: 16px; /* 모바일에서는 조금 더 큰 크기로 설정 */
-        left: 5%;
-        max-width: 80%; /* 모바일에서는 더 넓게 사용 */
+        max-width: 100%; /* 모바일에서는 전체 너비 사용 */
+        text-align: center; /* 모바일에서는 중앙 정렬 */
+        margin-bottom: 1rem;
         
         .contact-item {
           margin-bottom: 0.8rem;
@@ -163,16 +195,55 @@ const handleMouseLeave = () => {
 
     /* 프로필 이미지 스타일링 */
     .img {
-      position: absolute; left: 50%; top: 50%; transform: translate(200%, -50%); /* 중앙 배치 */
       width: 30vh; height: 30vh; border-radius: 25%; overflow: hidden; /* 원형 이미지 */
-      //filter: grayscale(100%); transition: all 0.3s; /* 회색으로 표시, 호버 효과 */
+      flex-shrink: 0; /* 이미지 크기 고정 */
+      margin-left: 2rem; /* 텍스트와의 간격 */
+      transition: all 0.3s; /* 호버 효과 */
 
-      /* 작은 화면에서는 이미지 크기 축소 */
-      @media (max-width: 320px){ width: 20vh; height: 20vh; }
+      /* 데스크톱에서 이미지 크기 조정 */
+      @media (min-width: 1200px) {
+        width: 35vh;
+        height: 35vh;
+      }
+
+      /* 태블릿에서는 이미지 크기 조정 */
+      @media (max-width: 800px) and (min-width: 481px) {
+        width: 25vh; 
+        height: 25vh;
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+      
+      /* 모바일에서는 이미지 크기 축소 */
+      @media (max-width: 480px) {
+        width: 20vh; 
+        height: 20vh;
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+
+      /* 작은 화면에서는 이미지 크기 더 축소 */
+      @media (max-width: 320px){ 
+        width: 15vh; 
+        height: 15vh;
+      }
+      
+      /* 이미지 요소 자체 스타일링 */
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 이미지 비율 유지하며 컨테이너에 맞춤 */
+      }
     }
 
-    /* 호버 효과: 이미지만 커러로 변함 */
-    &:hover .img { filter: grayscale(0); /* 이미지 커러 표시 */ }
+    /* 호버 효과: 이미지 스케일 변화 */
+    &:hover .img { 
+      transform: scale(1.05); /* 이미지 살짝 확대 */
+      
+      @media (max-width: 800px) {
+        transform: scale(1.02); /* 모바일에서는 덜 확대 */
+      }
+    }
   }
 
   /* 장식용 라인 컨테이너 */

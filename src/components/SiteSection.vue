@@ -45,7 +45,7 @@ import { siteText } from "@/constants/index";
 </template> 
 
 <style lang="scss" scoped>
-@import "@/assets/scss/mixin";
+@use "@/assets/scss/mixin" as *;
 
 /* 사이트 섹션 내부 컨테이너 */
 .site__inner {
@@ -141,10 +141,22 @@ import { siteText } from "@/constants/index";
                 left: 1vw;
                 top: 1vw;
 
-                @media (max-width: 800px){ 
-                    font-size: 80px;
-                    left: 20px;
-                    top: 20px;
+                @media (max-width: 800px) and (min-width: 481px) { 
+                    font-size: 60px;
+                    left: 15px;
+                    top: 15px;
+                }
+                
+                @media (max-width: 480px) { 
+                    font-size: 50px;
+                    left: 10px;
+                    top: 10px;
+                }
+                
+                @media (max-width: 320px) { 
+                    font-size: 40px;
+                    left: 8px;
+                    top: 8px;
                 }
             }
             /* 텍스트 스타일링 */
@@ -161,8 +173,16 @@ import { siteText } from "@/constants/index";
                     text-decoration: underline;
                     font-family: var(--mainEng-font);
 
-                    @media (max-width: 800px){ 
-                        font-size: 26px;
+                    @media (max-width: 800px) and (min-width: 481px) { 
+                        font-size: 30px;
+                    }
+                    
+                    @media (max-width: 480px) { 
+                        font-size: 22px;
+                    }
+                    
+                    @media (max-width: 320px) { 
+                        font-size: 18px;
                     }
                 }
             }

@@ -133,6 +133,17 @@ onUnmounted(() => {
         display: flex; /* 플렉스박스 레이아웃 */
         flex-wrap: nowrap; // 아이템들이 한 줄로 나열되도록
         width: 5200px;     // (아이템 너비 500 + 마진 20) * 10개 = 5200px
+        
+        /* 태블릿에서는 너비 축소 */
+        @media (max-width: 800px) {
+            width: 3200px; // (아이템 너비 300 + 마진 20) * 10개 = 3200px
+        }
+        
+        /* 모바일에서는 세로 배치 */
+        @media (max-width: 480px) {
+            flex-direction: column;
+            width: 100%;
+        }
     }
     /* 각 포트폴리오 아이템 */
     .port__item {
@@ -142,6 +153,24 @@ onUnmounted(() => {
         background-color: var(--subBg100); /* 기본 배경색 */
         padding: 2.5rem; /* 내부 여백 */
         margin-right: 20px; /* 오른쪽 여백 */
+        
+        /* 태블릿에서는 크기 축소 */
+        @media (max-width: 800px) {
+            width: 300px;
+            height: 60vh;
+            padding: 1.5rem;
+            margin-right: 20px;
+        }
+        
+        /* 모바일에서는 전체 너비 사용 */
+        @media (max-width: 480px) {
+            width: 100%;
+            height: auto;
+            min-height: 400px;
+            margin-right: 0;
+            margin-bottom: 20px;
+            padding: 1.5rem;
+        }
     }
 
     // 이하 나머지 스타일은 기존과 동일하게 유지

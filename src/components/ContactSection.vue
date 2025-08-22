@@ -104,11 +104,24 @@
             transition: all 0.3s; /* 애니메이션 효과 */
             cursor: all-scroll; /* 커서 스타일 */
 
+            /* 태블릿에서의 텍스트 스타일 */
+            @media (max-width: 800px) and (min-width: 481px) {
+                font-size: 28px;
+                padding: 0 20px;
+            }
+            
             /* 모바일에서의 텍스트 스타일 */
-            @media (max-width: 800px){ 
-                font-size: 24px; /* 모바일에서의 고정 크기 */
+            @media (max-width: 480px){ 
+                font-size: 20px; /* 모바일에서의 고정 크기 */
                 padding: 0 16px; /* 좌우 여백 */
                 word-break: break-all; /* 긴 텍스트 줄바꿈 처리 */
+                line-height: 1.2;
+            }
+            
+            /* 아주 작은 화면 */
+            @media (max-width: 320px) {
+                font-size: 18px;
+                padding: 0 12px;
             }
         }
     }
