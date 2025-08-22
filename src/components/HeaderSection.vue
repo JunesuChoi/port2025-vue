@@ -9,7 +9,7 @@ import { headerNav } from "@/constants/index";
         <div class="header__inner">
             <!-- 사이트 로고 -->
             <h1 class="header__logo">
-                <a href="#">portfolio<em>vue.js</em></a>
+                <a href="#">DevFolio<em>2025</em></a>
             </h1>
             <!-- 메인 네비게이션: 모바일에서는 토글 가능 -->
             <nav class="header__nav" role="navigation" aria-label="메인 메뉴" :class="{ show: isNavVisible }">
@@ -74,21 +74,42 @@ export default {
 /* 헤더 내부 컨테이너 스타일링 */
 .header__inner {
     @include flex-between; /* 로고와 네비게이션을 양쪽 끝에 배치 */
-    background-color: rgba(116, 99, 99, 0.1); /* 반투명 배경 */
-    backdrop-filter: blur(15px); /* 배경 블러 효과 */
-    padding: 1rem;
+    background: rgba(10, 10, 10, 0.95); /* 다크 반투명 배경 */
+    backdrop-filter: blur(20px); /* 더 강한 블러 효과 */
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1); /* 서브틀한 보더 */
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
 
     /* 로고 스타일링 */
     .header__logo {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
+        font-weight: 700;
         text-align: center;
         text-transform: uppercase;
         line-height: 1;
+        color: var(--primary-color);
+        letter-spacing: 0.5px;
+
+        a {
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+
+            &:hover {
+                filter: brightness(1.2);
+                transform: scale(1.05);
+            }
+        }
 
         em {
-            font-size: 10px;
+            font-size: 0.6rem;
             display: block;
-            color: var(--black200);
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-top: 2px;
+            opacity: 0.8;
         }
     }
     
@@ -103,16 +124,19 @@ export default {
             &.show {
                 display: block;
 
-                ul {
-                    display: block;
-                    position: absolute;
-                    right: 0;
-                    top: 68px;
-                    background-color: rgba(116,99,99,0.1);
-                    backdrop-filter: blur(15px);
-                    z-index: 10000;
-                    min-width: 150px;
-                    padding: 20px 0;
+                                    ul {
+                        display: block;
+                        position: absolute;
+                        right: 0;
+                        top: 68px;
+                        background: rgba(10, 10, 10, 0.95);
+                        backdrop-filter: blur(20px);
+                        border: 1px solid rgba(0, 212, 255, 0.2);
+                        border-radius: 12px;
+                        z-index: 10000;
+                        min-width: 200px;
+                        padding: 16px 0;
+                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
                     li {
                         display: block;
@@ -140,9 +164,35 @@ export default {
             /* 네비게이션 링크 스타일링 */
             a {
                 text-transform: uppercase;
-                font-size: 14px;
-                padding: 14px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                padding: 12px 16px;
                 position: relative;
+                color: var(--text-secondary);
+                transition: all 0.3s ease;
+                border-radius: 6px;
+                letter-spacing: 0.5px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    width: 0;
+                    height: 2px;
+                    background: var(--gradient-tech);
+                    transition: all 0.3s ease;
+                    transform: translateX(-50%);
+                }
+
+                &:hover {
+                    color: var(--primary-color);
+                    background: rgba(0, 212, 255, 0.1);
+                    
+                    &::before {
+                        width: 80%;
+                    }
+                }
     
                 /* 호버 텍스트 기본 스타일 */
                 .hover-text {
@@ -150,13 +200,16 @@ export default {
                     position: absolute;
                     left: 50%;
                     transform: translateX(-50%);
-                    bottom: -20px;
-                    font-size: 12px;
+                    bottom: -35px;
+                    font-size: 0.75rem;
                     white-space: nowrap;
-                    background-color: #000000;
-                    color: #ffffff; /* 흰색 글씨 */
-                    padding: 3px 8px;
-                    border-radius: 4px;
+                    background: var(--cardBg-color);
+                    color: var(--text-primary);
+                    padding: 6px 12px;
+                    border-radius: 8px;
+                    border: 1px solid var(--primary-color);
+                    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+                    z-index: 1000;
                 }
                 
                 /* 호버 시 텍스트 표시 */
@@ -170,42 +223,53 @@ export default {
     /* 모바일 메뉴 토글 버튼 스타일링 */
     .header__nav__mobile {
         display: none;
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         cursor: pointer;
+        border-radius: 8px;
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: scale(1.05);
+        }
 
         @media (max-width: 800px){
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* 햄버거 아이콘 스타일링 */
         span {
             display: block;
-            width: 40px;
+            width: 20px;
             height: 2px;
-            background-color: var(--black);
-            margin-top: 19px;
+            background-color: var(--primary-color);
             position: relative;
+            transition: all 0.3s ease;
 
             &::before {
                 content: "";
-                width: 40px;
+                width: 20px;
                 height: 2px;
-                background-color: var(--black);
+                background-color: var(--primary-color);
                 position: absolute;
                 right: 0;
-                top: 6px;
-                transition: width 0.3s;
+                top: -6px;
+                transition: all 0.3s ease;
             }
             &::after {
                 content: "";
-                width: 40px;
+                width: 20px;
                 height: 2px;
-                background-color: var(--black);
+                background-color: var(--primary-color);
                 position: absolute;
                 left: 0;
-                bottom: 6px;
-                transition: width 0.3s;
+                bottom: -6px;
+                transition: all 0.3s ease;
             }
         }
     }

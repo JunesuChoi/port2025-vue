@@ -100,11 +100,27 @@ const handleMouseLeave = () => {
 
   /* 소개 텍스트 영역 스타일링 */
   .intro__text {
-    width: 100%; height: 40vh; background-color: var(--black); color: var(--white); /* 배경과 글자색 */
-    display: flex; align-items: center; justify-content: space-between; /* 양쪽 정렬로 변경 */
-    position: relative; /* 내부 요소 배치를 위한 기준점 */
-    overflow: hidden; /* 넘치는 부분 숨김 */
-    padding: 0 2rem; /* 좌우 여백 추가 */
+    width: 100%; height: 40vh; 
+    background: var(--gradient-primary); /* 그라디언트 배경 */
+    color: var(--white);
+    display: flex; align-items: center; justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    padding: 0 2rem;
+    border-radius: 20px;
+    margin: 0 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+      pointer-events: none;
+    }
 
     /* 모바일에서는 세로 배치 */
     @media (max-width: 800px) {
@@ -115,11 +131,22 @@ const handleMouseLeave = () => {
 
     /* 텍스트 스타일링 */
     .text {
-      font-size: 3vw; line-height: 1; font-weight: 900; text-transform: uppercase; /* 크고 굵게, 대문자로 */
-      text-decoration: underline; text-align: center; position: relative; z-index: 100; /* 밑줄과 중앙 정렬 */
-      transition: all 0.3s; cursor: all-scroll; /* 호버 효과와 커서 스타일 */
-      flex: 1; /* 남은 공간 차지 */
-      max-width: 60%; /* 최대 너비 제한 */
+      font-size: 3vw; line-height: 1.1; font-weight: 800; text-transform: uppercase;
+      text-align: center; position: relative; z-index: 100;
+      transition: all 0.3s ease; cursor: pointer;
+      flex: 1;
+      max-width: 60%;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      
+      div {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease forwards;
+        
+        &:nth-child(1) { animation-delay: 0.1s; }
+        &:nth-child(2) { animation-delay: 0.3s; }
+        &:nth-child(3) { animation-delay: 0.5s; }
+      }
 
       /* 태블릿에서 크기 조정 */
       @media (max-width: 800px) and (min-width: 481px) { 
@@ -195,10 +222,29 @@ const handleMouseLeave = () => {
 
     /* 프로필 이미지 스타일링 */
     .img {
-      width: 30vh; height: 30vh; border-radius: 25%; overflow: hidden; /* 원형 이미지 */
-      flex-shrink: 0; /* 이미지 크기 고정 */
-      margin-left: 2rem; /* 텍스트와의 간격 */
-      transition: all 0.3s; /* 호버 효과 */
+      width: 30vh; height: 30vh; border-radius: 25%; overflow: hidden;
+      flex-shrink: 0;
+      margin-left: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      border: 3px solid var(--primary-color);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+      animation: float 3s ease-in-out infinite;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: -3px; left: -3px; right: -3px; bottom: -3px;
+        background: var(--gradient-tech);
+        border-radius: 25%;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      &:hover::before {
+        opacity: 1;
+      }
 
       /* 데스크톱에서 이미지 크기 조정 */
       @media (min-width: 1200px) {
@@ -280,5 +326,23 @@ const handleMouseLeave = () => {
       &:nth-child(7){ height: 1px; /* 가장 얼음 */ }
     }
   }
+}
+
+// 애니메이션 키프레임
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+  50% { box-shadow: 0 25px 50px rgba(0, 212, 255, 0.2); }
 }
 </style>

@@ -1,16 +1,16 @@
 import port0 from "../assets/img/port0.jpg";
 
 export const headerNav = [
-  { title: "intro", url: "#intro" },
-  { title: "skill", url: "#skill" },
-  { title: "site", url: "#site" },
+  { title: "home", url: "#intro" },
+  { title: "skills", url: "#skill" },
+  { title: "projects", url: "#site" },
   { title: "portfolio", url: "#port" },
   { title: "contact", url: "#contact" },
 ];
 
 export const introText = {
-  title: "port developer",
-  desc: ["vue.js", "포트폴리오 프로젝트", "시작합니다.111"],
+  title: "Full Stack Developer",
+  desc: ["Frontend & Backend", "Modern Web Solutions", "Innovation Through Code"],
 };
 
 export const skillText = [
@@ -103,14 +103,14 @@ export const siteText = [
     ],
   },
   {
-    text: ["make", "site compliant with", "react.js"],
-    title: "리액트를 이용한 사이트 제작",
-    code: "https://github.com/webstoryboy/port2023-react",
-    view: "https://port2023-react.netlify.app",
+    text: ["Public", "R&D Information", "Portal System"],
+    title: "공공기관 R&D 정보포털 시스템",
+    code: "https://github.com/project/rd-portal",
+    view: "https://rd-portal-demo.com",
     info: [
-      "site coding",
-      "production period : two days",
-      "use stack : HTML5/CSS3, CSS Variable, react",
+      "Government Project",
+      "Development Period : 6 months",
+      "Tech Stack : Java, Spring, Oracle, JSP",
     ],
   },
   {
@@ -231,8 +231,9 @@ export const portText = [
 ];
 
 export const contactText = [
-  { link: "https://open.kakao.com/o/gM7YLzwf", title: "KAKAO : webstupids" },
-  { link: "mailto:webstoryboy@naver.com", title: "mail : webstoryboy@naver.com" },
+  { link: "https://github.com/username", title: "GitHub : /username" },
+  { link: "mailto:developer@email.com", title: "Email : developer@email.com" },
+  { link: "https://linkedin.com/in/username", title: "LinkedIn : /in/username" },
 ];
 
 export const footerText = [

@@ -147,12 +147,34 @@ onUnmounted(() => {
     }
     /* 각 포트폴리오 아이템 */
     .port__item {
-        flex-shrink: 0;   // 아이템 너비가 줄어들지 않도록
-        width: 500px; /* 고정 너비 */
-        height: 70vh; /* 반응형 높이 */
-        background-color: var(--subBg100); /* 기본 배경색 */
-        padding: 2.5rem; /* 내부 여백 */
-        margin-right: 20px; /* 오른쪽 여백 */
+        flex-shrink: 0;
+        width: 500px;
+        height: 70vh;
+        background: var(--cardBg-color);
+        padding: 2.5rem;
+        margin-right: 20px;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        
+        &:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+          
+          &::before {
+            opacity: 1;
+          }
+        }
         
         /* 태블릿에서는 크기 축소 */
         @media (max-width: 800px) {
@@ -174,17 +196,57 @@ onUnmounted(() => {
     }
 
     // 이하 나머지 스타일은 기존과 동일하게 유지
-    /* 각 포트폴리오 아이템의 배경색 지정 */
-    .port__item.p1 { background-color: var(--subBg100); }
-    .port__item.p2 { background-color: var(--subBg200); }
-    .port__item.p3 { background-color: var(--subBg300); }
-    .port__item.p4 { background-color: var(--subBg400); }
-    .port__item.p5 { background-color: var(--subBg500); }
-    .port__item.p6 { background-color: var(--subBg100); }
-    .port__item.p7 { background-color: var(--subBg200); }
-    .port__item.p8 { background-color: var(--subBg300); }
-    .port__item.p9 { background-color: var(--subBg400); }
-    .port__item.p10 { background-color: var(--subBg500); }
+    /* 각 포트폴리오 아이템의 배경과 테마 지정 */
+    .port__item.p1 { 
+      background: var(--cardBg-color); 
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      &:hover { border-color: var(--primary-color); }
+    }
+    .port__item.p2 { 
+      background: var(--cardBg-color); 
+      border: 1px solid rgba(255, 107, 107, 0.2);
+      &:hover { border-color: var(--secondary-color); }
+    }
+    .port__item.p3 { 
+      background: var(--cardBg-color); 
+      border: 1px solid rgba(78, 205, 196, 0.2);
+      &:hover { border-color: var(--accent-color); }
+    }
+    .port__item.p4 { 
+      background: var(--cardBg-color); 
+      border: 1px solid rgba(255, 217, 61, 0.2);
+      &:hover { border-color: var(--warning-color); }
+    }
+    .port__item.p5 { 
+      background: var(--cardBg-color); 
+      border: 1px solid rgba(107, 207, 127, 0.2);
+      &:hover { border-color: var(--success-color); }
+    }
+    .port__item.p6 { 
+      background: var(--cardBg-color); 
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      &:hover { border-color: var(--primary-color); }
+    }
+    .port__item.p7 { 
+      background: var(--cardBg-color); 
+      border: 1px solid rgba(255, 107, 107, 0.2);
+      &:hover { border-color: var(--secondary-color); }
+    }
+    .port__item.p8 { 
+      background: var(--cardBg-color); 
+      border: 1px solid rgba(78, 205, 196, 0.2);
+      &:hover { border-color: var(--accent-color); }
+    }
+    .port__item.p9 { 
+      background: var(--cardBg-color); 
+      border: 1px solid rgba(255, 217, 61, 0.2);
+      &:hover { border-color: var(--warning-color); }
+    }
+    .port__item.p10 { 
+      background: var(--cardBg-color); 
+      border: 1px solid rgba(107, 207, 127, 0.2);
+      &:hover { border-color: var(--success-color); }
+    }
 
     /* 번호 스타일링 */
     .port__item .num { font-size: 2rem; font-family: var(--mainNum-font); /* 숫자용 폰트 */ }
