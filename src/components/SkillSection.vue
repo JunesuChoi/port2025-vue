@@ -104,16 +104,13 @@ import { skillText } from "@/constants/index";
       line-height: 1.7;
       white-space: pre-line; /* 개행 유지 */
       
-      /* 역량 요약 첫 번째 항목 스타일 */
-      &:first-of-type {
-        font-weight: 500;
-        
-        /* 불릿 포인트 스타일링 */
-        :deep(.bullet) {
-          color: var(--black100);
-          font-weight: 700;
-          margin-right: 0.5rem;
-        }
+      /* 섹션 제목 스타일 (개행 후 텍스트) */
+      br + br + :not(br) {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        display: block;
       }
     }
   }
